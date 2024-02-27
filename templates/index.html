@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header-item {
+            margin-right: 20px;
+        }
+        .profile-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .profile-item {
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px;
+            max-width: calc(33.33% - 20px);
+        }
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .profile-info {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-item">
+                <a href="#">Account</a>
+            </div>
+            <div class="header-item">
+                <a href="#">Saved Notes</a>
+            </div>
+            <div class="header-item">
+                <a href="#">Saved Videos</a>
+            </div>
+            <div class="header-item">
+                <a href="#">Upcoming Sessions</a>
+            </div>
+        </div>
+        <h1>Welcome to the Student Dashboard</h1>
+        <div>
+            <h2>Student Profiles</h2>
+            <ul class="profile-list">
+                {% for student in students %}
+                    <li class="profile-item">
+                        <img class="profile-image" src="{{ student.image }}" alt="Profile Image">
+                        <div class="profile-info">
+                            <strong>Name:</strong> {{ student.name }}<br>
+                            <strong>ID:</strong> {{ student.id }}<br>
+                            <strong>Grade:</strong> {{ student.grade }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
